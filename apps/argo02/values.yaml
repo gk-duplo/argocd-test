@@ -1,0 +1,11 @@
+replicaCount: 3
+image:
+  repository: bitnami/wordpress
+  tag: latest
+wordpressUsername: argo02_user
+wordpressPassword: argo02_password
+mariadb:
+  enabled: true
+  rootPassword: argo02_db_password
+  db:
+    name: argo02_db

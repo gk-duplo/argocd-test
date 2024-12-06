@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo02-wordpress
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/gk-duplo/argocd-test.git
+    targetRevision: main
+    path: apps/argo02
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: duploservices-argo02
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
